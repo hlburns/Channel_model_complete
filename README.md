@@ -1,4 +1,4 @@
-# <center> PhD Repository </center> #
+<center><h1> PhD Repository </h1></center> 
 
 Overview of PhD code
 
