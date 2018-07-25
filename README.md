@@ -17,3 +17,6 @@ This work used the MITgcm to simulate over 40 different experiments of idealised
 
 4. **Ipython Notebooks**
     * For plotting and bespoke caculations.
+    
+5. **Selected Figures**
+      * Mainly used for illustration in the wiki, but gives an overview of results and productions of some python scripts
