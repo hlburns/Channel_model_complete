@@ -6,7 +6,7 @@ Overview of PhD code
 
 This work used the MITgcm to simulate over 40 different experiments of idealised channel models altering the northern boundary condition. This repository gives an overview of the code used for this work.
 
-1. **MITgcm template setup**
+1. **[MITgcm template setup](https://github.com/hlburns/PhD/wiki/Model-Setup)**
     * This is a template of channel model set up, input files, header files, optimization, job submission.
 
 2. **NetCDF manipulation**
