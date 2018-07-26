@@ -1,0 +1,19 @@
+# Contents #
+README file with setup info
+Scripts for generating files
+Executable
+
+# HOW TO #
+
+run gendata.py
+inpect data, tidy, next and job files and adjust accordingly
+run autodata in data_files
+run autotidy in tidy_files
+run autonext in next_files
+run autojobs in job_files
+run subs
+# For spin up years run minimal output and packages
+mv files to spinup and run tidy_up
+# switch on output and packages
+# edit glue_all accordingly
+run glue_all 

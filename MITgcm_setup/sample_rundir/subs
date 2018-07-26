@@ -1,0 +1,46 @@
+#!/bin/bash
+FIRST=`sbatch job_files/J0`
+echo $FIRST
+SECOND=`sbatch --dependency=afterok:${FIRST//[![:digit:]]} job_files/J1`
+echo ${SECOND//[![:digit:]]}
+THIRD=`sbatch --dependency=afterok:${SECOND//[![:digit:]]/} job_files/J2`
+echo ${THIRD//[![:digit:]]}
+FOURTH=`sbatch --dependency=afterok:${THIRD//[![:digit:]]} job_files/J3`
+echo ${FOURTH//[![:digit:]]}
+FITH=`sbatch --dependency=afterok:${FOURTH//[![:digit:]]} job_files/J4`
+echo ${FITH//[![:digit:]]}
+SIXTH=`sbatch --dependency=afterok:${FITH//[![:digit:]]} job_files/J5`
+echo ${SIXTH//[![:digit:]]}
+SEVENTH=`sbatch --dependency=afterok:${SIXTH//[![:digit:]]} job_files/J6`
+echo ${SEVENTH//[![:digit:]]}                                                                                       
+EIGHTH=`sbatch --dependency=afterok:${SEVENTH//[![:digit:]]} job_files/J7`
+echo ${EIGHTH//[![:digit:]]}                                            
+NINETH=`sbatch --dependency=afterok:${EIGHTH//[![:digit:]]} job_files/J8`
+echo ${NINETH//[![:digit:]]}                 
+TENTH=`sbatch --dependency=afterok:${NINETH//[![:digit:]]} job_files/J9` 
+echo ${TENTH//[![:digit:]]}                              
+END=`sbatch --dependency=afterok:${TENTH//[![:digit:]]} job_files/J10`
+echo ${END//[![:digit:]]}
+SECOND=`sbatch --dependency=afterok:${END//[![:digit:]]} job_files/J11`
+echo ${SECOND//[![:digit:]]}
+THIRD=`sbatch --dependency=afterok:${SECOND//[![:digit:]]/} job_files/J12`
+echo ${THIRD//[![:digit:]]}
+FOURTH=`sbatch --dependency=afterok:${THIRD//[![:digit:]]} job_files/J13`
+echo ${FOURTH//[![:digit:]]}
+FITH=`sbatch --dependency=afterok:${FOURTH//[![:digit:]]} job_files/J14`
+echo ${FITH//[![:digit:]]}
+SIXTH=`sbatch --dependency=afterok:${FITH//[![:digit:]]} job_files/J15`
+echo ${SIXTH//[![:digit:]]}
+SEVENTH=`sbatch --dependency=afterok:${SIXTH//[![:digit:]]} job_files/J16`
+echo ${SEVENTH//[![:digit:]]}
+EIGHTH=`sbatch --dependency=afterok:${SEVENTH//[![:digit:]]} job_files/J17`
+echo ${EIGHTH//[![:digit:]]}
+NINETH=`sbatch --dependency=afterok:${EIGHTH//[![:digit:]]} job_files/J18`
+echo ${NINETH//[![:digit:]]}                 
+TENTH=`sbatch --dependency=afterok:${NINETH//[![:digit:]]} job_files/J19`
+echo ${TENTH//[![:digit:]]}
+END=`sbatch --dependency=afterok:${TENTH//[![:digit:]]} job_files/J20`
+echo ${END//[![:digit:]]}
+
+exit 0
+

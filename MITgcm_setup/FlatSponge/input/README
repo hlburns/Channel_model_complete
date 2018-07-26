@@ -1,0 +1,26 @@
+MITgcm Nchannel Flat Run
+(See Burns et al. 2015 - In prep for detailed explanation)
+
+Similar set up to Abernathey 2011
+
+Input fields are generated here:
+http://nbviewer.ipython.org/github/hlburns/Notebooks/Gendata_notebooks/Gendata_Nchannel.ipynb
+(Gendata_Nchannel.py)
+
+Setup in Github repo here:
+https://github.com/hlburns/MITgcmSetups/FlatSponge
+
+Annotated data files.
+
+This setup was ran in 9 different simulations varying data.rbcs relaxation timescale
+
+This setup can be used as a basis for flat bottom channel models
+
+Requires 300+ years to Spin up, (~2 weeks on 128 cores).
+
+Suggestion, once happy with set up suppress diagnostics output and turn off layers package 
+to give 25% + reduction on run time.
+
+Email H.Burns@noc.soton.ac.uk for further information
+
+

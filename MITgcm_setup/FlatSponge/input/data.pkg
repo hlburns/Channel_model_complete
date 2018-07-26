@@ -1,0 +1,9 @@
+#============================================== 
+#|        List of runtime packages            | 
+#============================================== 
+ &PACKAGES
+  useMNC=.TRUE.,
+  usediagnostics=.TRUE.,
+  useRBCS=.TRUE.,
+  useLayers=.TRUE.,
+ &

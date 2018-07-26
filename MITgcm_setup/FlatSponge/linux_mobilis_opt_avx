@@ -1,0 +1,76 @@
+#!/bin/bash
+#
+# Composed and tested with Jeff Blundell based off optimization done
+# on NOCS SGI Altix ICE system
+# (Intel Xeon E5440 processors + SLES 11.1 OS)
+# Derived from linux_amd64_ifort
+# Should work fine on EM64T and other AMD64 compatible Intel systems
+# a) Processor specific flags:
+#    1) for more speed on Core2 processors replace -xW with -xT
+#    2) for more speed on Pentium4 based EM64T processors replaces -xW with -xP
+# b) For more speed, provided your data size doesn't exceed 2GB you can
+# remove -fPIC which carries a performance penalty of 2-6%.
+# c) Provided that the libraries you link to are compiled with -fPIC this
+# optfile should work.
+# d) You can replace -fPIC with -mcmodel=medium which may perform faster
+# then -fPIC and still support data sizes over 2GB per process but all
+# the libraries you link to myst be compiled with -fPIC or -mcmodel=medium
+# e) Changed from -O3 to -O2 to avoid buggy Intel v.10 compilers. Speed
+# impact appears to be minimal.
+# This version is intended to implement MPI parallelism.
+
+FC=mpif90
+F90C=mpif90
+CC=mpicc
+LINK='mpif90 -shared-intel -no-ipo'
+
+
+DEFINES='-DWORDLENGTH=4'
+CPP='cpp -traditional -P'
+F90FIXEDFORMAT='-fixed -Tf'
+
+NOOPTFLAGS='-O0 -g -m64 -fPIC'
+NOOPTFILES=''
+
+MPI_ROOT='/cm/shared/apps/openmpi/intel/64/1.6.5'
+INCLUDEDIRS="${MPI_ROOT}/include"
+INCLUDES="-I${MPI_ROOT}/include"
+LIBS=''
+
+# Aim for purely little-endian binary environment,
+# so remove -convert big_endian flag from FFLAGS
+if test "x$DEVEL" != x ; then
+    FFLAGS='-132 -r8 -i4 -warn -W0 -WB -assume byterecl -fPIC -O0 -g -noalign -fpstkchk -check all -fp
+e0 -traceback -ftrapuv -fpmodel except -warn all'
+else
+    FFLAGS='-132 -r8 -i4 -warn -W0 -WB -assume byterecl -fPIC'
+fi
+
+#  Note that the -mp switch is for ieee "maintain precision" and is
+#  roughly equivalent to -ieee
+if test "x$IEEE" = x ; then
+    #  No need for IEEE-754
+    FOPTIM='-xHOST -O2 -ip -no-prec-div -align -mp1 -fpe0'
+else
+    #  Try to (nearly) follow IEEE-754
+    #  Note that -fpe0 is a recent addition
+    FOPTIM='-xHOST -O2 -ip -no-prec-div -align -mp1 -fpe0'
+fi
+F90FLAGS=$FFLAGS
+F90OPTIM=$FOPTIM
+CFLAGS='-O2 -ip -fPIC'
+
+# Simplified netCDF finder: don't bother looking in /usr/local
+# and /usr/include, as we never install our packages there
+
+NCF4_DIR='/cm/shared/apps/netcdf/intel/64/4.3.0'
+NCFF_DIR='/home/jeff/packages/netcdf4/netcdf-fortran-4.2/mobilis/intel14.0/'
+HDF5_DIR='/cm/shared/apps/hdf5_18/1.8.11/'
+NCIDIR=${NCFF_DIR}
+# Derived symbols passed to Makefile:
+if [ "x$NCIDIR" != x ] ; then
+    INCLUDEDIRS="${INCLUDEDIRS} ${NCIDIR}/include"
+    INCLUDES="${INCLUDES} -I${NCIDIR}/include"
+    LIBS="-L${NCFF_DIR}/lib -lnetcdff -L${NCF4_DIR}/lib -lnetcdf -L${HDF5_DIR}/lib -lhdf5_hl -lhdf5hl_fortran -lhdf5 -lhdf5_fortran -lz -lm"
+
+fi

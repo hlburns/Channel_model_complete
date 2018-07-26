@@ -1,0 +1,7 @@
+ln -sf tidy_files/mtidy.0 mtidy
+chmod 755 mtidy
+mtidy
+rm -f STDER*
+cp -p 0-20.mnc/pickup*1382400* .
+ln -sf data_files/data.1382400 data
+

@@ -1,0 +1,14 @@
+# RBCS package parameters:
+ &RBCS_PARM01
+#Relaxtion time 3 days
+   tauRelaxT=259200., # tau_T: Can be adjusted to open/close 
+                      # Northern Boundary (this mimics
+                      # open Northern Boundary) 3 - 10 days
+                      # will give desired ROC for most models
+   relaxMaskFile(1)='T.msk', # Mask 0 = no relaxing, 1 full relaxation time scale
+                             # at 1/tau_T. Vary linearly or parabolicly accross sponge
+                             # layer. 
+   relaxTFile='T_Sponge',  # T profile to relax to.
+   useRBCtemp=.TRUE., # Temperature relaxation activated
+ &
+

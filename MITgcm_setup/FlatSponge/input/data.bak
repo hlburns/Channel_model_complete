@@ -1,0 +1,160 @@
+###################################################################
+##                                                               ##
+##  Annotated data file used in Flat bottom Southern Ocean runs  ##
+##            Used in Burns et al (in Prep)                      ##
+##                                                               ##
+###################################################################
+
+ &PARM01
+##################################################################
+##                    Pysical parameters                        ##
+##################################################################
+ # Reference temp (intial T profile, generated in gendata.py)
+ tRef=7.95797596,  7.81253554,  7.50931741,  6.93595077,  6.23538398,
+      5.60148493,  5.02790935,  4.5089167 ,  4.03931274,  3.6143975 ,
+      3.22991829,  2.88202712,  2.56724216,  2.28241296,  2.02468884,
+      1.79149041,  1.58048375,  1.38955702,  1.21679938,  1.0604818 ,
+      0.9190398 ,  0.79105779,  0.67525488,  0.57047207,  0.47566066,
+      0.38987176,  0.31224674,  0.24200873,  0.14898305,  0.04478574,
+# Viscosity Settings:
+ useAreaViscLength=.FALSE.,
+ viscAz=3.0E-04, # vertical eddy coeff
+ viscA4=9.0E8, # Bi harmonic viscosity coeff
+               # A4 <= L^4/(32dt)
+               # Allows less viscous yet numerically stable simulation
+               # than harmonic (fosuses on dynamics at grid scale)
+ viscAh=12.0, # Lapasian viscosity coeff ( set that Horizontal Reynolds
+              # number = 0. Scales with resolution of 1 less than the order
+              # i.e. ensures a wave can not pass through a cell in less than 
+              #  1 timestep Ah < L^2 / ( 4 dt)
+ viscC4leith=0.000,
+ viscC4leithD=0.000,
+ viscA4GridMax=0.500,
+ viscC2leith=0.000,
+ viscC2leithD=0.000,
+ viscAhGridMax=0.500,
+# Advection scheme
+ tempAdvScheme=7, #  7th order centered difference 
+                  # OS7MP 7th order one step method with
+                  # monotonicit-preserving limiter
+                  # Less computationally expensive and minimises
+                  # numerical diffusion 
+                  # high resolution try to use higher order Advsch 
+########################
+# Diffusivity Settings #
+########################
+ diffKzT=0.0E-5, # Laplacian diffusion of heat vertically 
+ diffKhT=0.0, # Laplacian diffusion of heat laterally
+              # BC:  d/dx = d/dy = 0 (all boundaries)
+ diffK4T=0.0,
+ saltStepping=.FALSE., # no need no salt change!
+ staggerTimeStep=.TRUE., #  Stagger baroclinic time stepping
+                         # rather than synchronous time stepping
+                         # thermodynamics solver is delayed half 
+                         # a time step, allowing use of most recent velocities 
+                         # to compute advection terms
+# equation of state
+ eosType='LINEAR', # if non linear selected remember to set POLY3.COEFFS
+                   #  handy util: util/knudsen2/knudsen2.f
+ tAlpha=2.000000E-04, # thermal expansion coeff 
+ sBeta=0.000000E+00, # salt is passive in this idealized set up
+#######################
+# boundary conditions #
+#######################
+ no_slip_sides=.TRUE., # options are free or no slip. 
+                       # No slip: the normal gradient of a tangential flow
+                       # such that the flow is zero on the boundary by adding
+                       # additional source term in cells next to boundary
+                       # Free slip = zero stress (more convienient coding)
+ no_slip_bottom=.TRUE.,
+ bottomDragLinear=1.1E-03, # Flat bottom experiments require bottom drag!!
+ bottomDragQuadratic=0.000000E+00,
+# physical parameters
+ f0=-1.000000E-04, # Coriolis parameter f=2wsinlon
+                   # Southern Hemispher f < 0
+                   # f0 is value at southern edge of domain
+ beta=1.000000E-11, #  df/dy
+ gravity=9.810000E+00,
+# exact volume conservation
+ exactConserv=.TRUE.,
+# C-V scheme for Coriolis term
+ useCDscheme=.FALSE.,
+# partial cells for smooth topography
+ hFacMin=5.000000E-02,
+# file IO stuff
+ readBinaryPrec=64,
+ useSingleCpuIO=.TRUE.,
+ debugLevel=1,
+
+ &
+
+ &PARM02
+##################################################################
+##                       Solver Settings                        ##
+##################################################################
+ cg2dMaxIters=500, # Upper limit of 2d con. grad iterations
+                   # (default 150)
+ cg2dTargetResidual=1.E-9, # default 1.E-7 
+ cg3dMaxIters=40, # Max no iter in 3d conjugate gradient solv
+ cg3dTargetResidual=1.E-9,
+ &
+
+ &PARM0
+##################################################################
+##                       time parameters                        ##
+##################################################################
+ deltaT=450, # time step scales with resolution
+# 7.5 minute timestep -> 69120 timesteps/year
+  nIter0=0, # start at
+# 20 years
+ nTimeSteps=1382400, # for how long
+ cAdjFreq = -1., # Convective adjustment intervals 
+                 # the freq at which the adjustment algorithm
+                 # is called to a non-zero value, if < 0
+                 # sets to tracer time step
+                 # Improves stability, most basic way of maintaining 
+                 # mixedlayer. Must be turned off with KPP
+ abEps=0.1, # Adams-Bashforth stabilizing parameter, required for
+            # Staggered time stepping 
+# Permanent restart/checkpoint file interval ( s )
+# 10 year interval (one per run)
+ pChkptFreq=311040000.00,
+# chkptFreq=0.0, # for rolling restarts
+ dumpFreq=0.0, # output state files in interval (s) 0 = no write
+ monitorFreq=0.0, # monitor output (use in testing set up)
+ dumpInitAndLast=.TRUE.,
+ pickupStrictlyMatch=.FALSE., # 
+ &
+
+ &PARM04
+#################################################################
+##                  Grid Parameters                            ##
+#################################################################
+
+ usingCartesianGrid=.TRUE., # Use Cartesian co-ords (uniform spacing)
+                            # Or by Vectors DelX and DelY (m)
+ usingSphericalPolarGrid=.FALSE.,
+ delXfile='delX', # 1D array file or can be set as gridlines * spacing 
+                  # i.e 400*5E3 (400 grinlines at 5km spacing)
+ delYfile='delY',
+ delZ=  1*10, 1*25, 1*50, 25*100, 2*200, # grid line spacing
+                                         # More complex runs require smoother
+                                         # Transitions (I use tanh curves)
+ &
+
+ &PARM05
+###############################################################
+##                  Forcing Files                            ##
+###############################################################
+ surfQfile='Qsurface' # Heat Flux at surface
+ bathyFile='topog'  #  Topography (flat)
+ zonalWindFile='Wind', # Zonal wind stress ( polar westerlies)
+ hydrogThetaFile='T.init', # Initial T field 
+                           # No intial stratification leads to
+                           # Trouble in setting up ACC
+                           # Flat bottom run requires noise in the
+                           # field to generate baroclinic instability
+                           # otherwise you get laminar flow
+ meridWindFile=, # No north-south wind stress
+ &
+

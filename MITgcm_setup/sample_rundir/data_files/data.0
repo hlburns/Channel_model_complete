@@ -1,0 +1,82 @@
+ &PARM01
+ tRefFile=T.init
+# viscosity
+ useAreaViscLength=.FALSE.,
+ viscAz=3.0E-04,
+ viscA4=9.0E8,
+ viscAh=12.0,
+ viscA4GridMax=0.500,
+ viscAhGridMax=0.500,
+# diffusivity
+ tempAdvScheme=7,
+ diffKzT=0.0E-5,
+ diffKhT=0.0,
+ diffK4T=0.0,
+ saltStepping=.FALSE.,
+ staggerTimeStep=.TRUE.,
+# equation of state
+ eosType='LINEAR',
+ tAlpha=2.000000E-04,
+ sBeta=0.000000E+00,
+# boundary conditions
+ no_slip_sides=.TRUE.,
+ no_slip_bottom=.TRUE.,
+ bottomDragLinear=1.1E-03,
+ bottomDragQuadratic=0.000000E+00,
+# physical parameters
+ f0=-1.000000E-04,
+ beta=1.000000E-11,
+ gravity=9.810000E+00,
+# exact volume conservation
+ exactConserv=.TRUE.,
+# C-V scheme for Coriolis term
+ useCDscheme=.FALSE.,
+# partial cells for smooth topography
+ hFacMin=5.000000E-02,
+# file IO stuff
+ readBinaryPrec=64,
+ useSingleCpuIO=.TRUE.,
+ debugLevel=1,
+
+ &
+
+ &PARM02
+ cg2dMaxIters=500,
+ cg2dTargetResidual=1.E-9,
+ cg3dMaxIters=40,
+ cg3dTargetResidual=1.E-9,
+ &
+
+ &PARM03
+ deltaT=450,
+# 7.5 minute timestep -> 69120 timesteps/year
+  nIter0=0,
+# 20 years
+ nTimeSteps=1382400,
+ cAdjFreq = -1.,
+ abEps=0.1,
+# Permanent restart/checkpoint file interval ( s )
+# 10 years
+ pChkptFreq=311040000.00,
+ dumpFreq=0.0,
+ monitorFreq=0.0,
+ dumpInitAndLast=.TRUE.,
+ pickupStrictlyMatch=.FALSE.,
+ &
+
+ &PARM04
+ usingCartesianGrid=.TRUE.,
+ usingSphericalPolarGrid=.FALSE.,
+ delXfile='delX',
+ delYfile='delY',
+ delZfile='delZ',
+ &
+
+ &PARM05
+ surfQfile='Qsurface'
+ bathyFile='topog'
+ zonalWindFile='Wind',
+ hydrogThetaFile='T.init',
+ meridWindFile=,
+ &
+

@@ -1,0 +1,44 @@
+# Diagnostic Package Choices
+#--------------------
+#  dumpAtLast (logical): always write output at the end of simulation (default=F)
+#  diag_mnc   (logical): write to NetCDF files (default=useMNC)
+#--for each output-stream:
+#  fileName(n) : prefix of the output file name (max 80c long) for outp.stream n
+#  frequency(n):< 0 : write snap-shot output every |frequency| seconds
+#               > 0 : write time-average output every frequency seconds
+#  timePhase(n)     : write at time = timePhase + multiple of |frequency|
+#    averagingFreq  : frequency (in s) for periodic averaging interval
+#    averagingPhase : phase     (in s) for periodic averaging interval
+#    repeatCycle    : number of averaging intervals in 1 cycle
+#  levels(:,n) : list of levels to write to file (Notes: declared as REAL)
+#                when this entry is missing, select all common levels of this list
+#  fields(:,n) : list of selected diagnostics fields (8.c) in outp.stream n
+#                (see "available_diagnostics.log" file for the full list of diags)
+#  missing_value(n) : missing value for real-type fields in output file "n"
+#  fileFlags(n)     : specific code (8c string) for output file "n"
+#--------------------
+&DIAGNOSTICS_LIST
+##
+# File 1: U, V, W, T 
+##
+frequency(1) = 31104000.,
+filename(1) = 'STATE',
+fields(1:4,1) = 'VVEL  ','UVEL    ','THETA   ','WVEL    ',
+##
+#  File 2: Layers packages Integrated zonal transport, layer thickness
+#          layer probability, layer averaged velocity.
+##
+fields(1:2,4) = 'LaVH1TH   ','LaHs1TH    ','LaPs1TH    ','LaVa1TH    '
+frequency(2) = 31104000.,
+filename(2) = 'Psi',
+##
+#   File 3: UT, VT, WT for reynolds decompostions.
+##
+frequency(3) = 31104000.,
+filename(3) = 'VTH',
+fields(1:3,3) = 'VVELTH   ', 'UVELTH    ','WVELTH   ',
+
+&
+
+&DIAG_STATIS_PARMS
+& 	

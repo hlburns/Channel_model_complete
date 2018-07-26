@@ -1,0 +1,19 @@
+# Example "data.mnc" file
+# Lines beginning "#" are comments
+ &MNC_01
+ # This packages need to be on to enable diagnostics package output
+ # All output except grid.nc is disabled here
+ # Pickup files written to binary
+ monitor_mnc=.TRUE.,
+ writegrid_mnc=.TRUE.,
+ pickup_read_mnc=.FALSE.,
+ pickup_write_mnc=.FALSE.,
+ timeave_mnc=.FALSE.,
+ snapshot_mnc=.FALSE.,
+ mnc_use_outdir=.TRUE.
+ mnc_use_name_ni0=.TRUE.,
+ mnc_outdir_str='mnc_out_',
+ &
+# Note: Some systems use & as the
+# namelist terminator. Other systems
+# use a / character (as shown here).

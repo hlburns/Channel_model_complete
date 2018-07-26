@@ -1,0 +1,12 @@
+if [ ! -e 0-20.mnc ]
+then
+  mkdir 0-20.mnc
+fi
+
+mv mnc_out_0*        0-20.mnc
+mv STDOUT.0*         0-20.mnc
+mv MITgcm*           0-20.mnc
+mv socn.output       0-20.mnc
+mv *.data            0-20.mnc
+mv *.meta            0-20.mnc
+cp -p data           0-20.mnc

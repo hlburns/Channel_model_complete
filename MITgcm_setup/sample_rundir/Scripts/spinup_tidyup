@@ -1,0 +1,20 @@
+#!/bin/bash
+for file in *.mnc/mnc_*/VT*.nc
+do 
+  ncra -O "${file}" "${file}"
+done
+
+for file in *.mnc/mnc_*/Psi*.nc
+do 
+  ncra -O "${file}" "${file}"
+done
+
+for file in *.mnc/mnc_*/VSQ*.nc
+do 
+  ncra -O "${file}" "${file}"
+done
+
+for file in *.mnc/mnc_*/VTH*.nc
+do 
+  ncra -O "${file}" "${file}"
+done
