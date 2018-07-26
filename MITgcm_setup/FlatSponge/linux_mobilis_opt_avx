@@ -15,25 +15,25 @@
 # d) You can replace -fPIC with -mcmodel=medium which may perform faster
 # then -fPIC and still support data sizes over 2GB per process but all
 # the libraries you link to myst be compiled with -fPIC or -mcmodel=medium
-# e) Changed from -O3 to -O2 to avoid buggy Intel v.10 compilers. Speed
-# impact appears to be minimal.
+# e) Changed from -O3 to -O2 (optimization level) to avoid buggy Intel v.10
+# compilers. Speed impact appears to be minimal.
 # This version is intended to implement MPI parallelism.
 
-FC=mpif90
+FC=mpif90 # FORTRAN compiler to use
 F90C=mpif90
-CC=mpicc
+CC=mpicc # Use MPI compiler
 LINK='mpif90 -shared-intel -no-ipo'
 
 
-DEFINES='-DWORDLENGTH=4'
-CPP='cpp -traditional -P'
+DEFINES='-DWORDLENGTH=4' #4 bytes
+CPP='cpp -traditional -P' # C preproser flags
 F90FIXEDFORMAT='-fixed -Tf'
 
-NOOPTFLAGS='-O0 -g -m64 -fPIC'
+NOOPTFLAGS='-O0 -g -m64 -fPIC' # Special flags to not be optimized
 NOOPTFILES=''
 
-MPI_ROOT='/cm/shared/apps/openmpi/intel/64/1.6.5'
-INCLUDEDIRS="${MPI_ROOT}/include"
+MPI_ROOT='/cm/shared/apps/openmpi/intel/64/1.6.5' # Path to openmpi
+INCLUDEDIRS="${MPI_ROOT}/include" 
 INCLUDES="-I${MPI_ROOT}/include"
 LIBS=''
 
