@@ -1,0 +1,2 @@
+#!/bin/bash
+while [ -d /proc/procID ]; do sleep 1; done && mail -s 'end of python job' email &
