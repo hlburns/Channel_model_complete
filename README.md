@@ -12,7 +12,7 @@ This work used the MITgcm to simulate over 40 different experiments of idealised
 2. **[NetCDF manipulation](https://github.com/hlburns/Channel_model_complete/wiki/NetCDF-manipulation)**
     * A large amount of data is generated and this must be layed out in a senisble matter
 
-3. **Python modules for analysis of MITgcm output**
+3. **[Python modules for analysis of MITgcm output](https://github.com/hlburns/Channel_model_complete/wiki/Python-Analysis)**
     * Custom base modules.
 
 4. **Ipython Notebooks**
