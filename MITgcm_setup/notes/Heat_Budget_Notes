@@ -1,0 +1,26 @@
+In order to check the heat budget you need to compare the cumulative (or mean*avaraging interval)
+heatflux into the ocean to the change in heat content over the averaging interval. 
+In order to get these diagnostics, you need to save (in data.diagnostics)
+oceQnet (surface heat flux), or TFLUX (which contains everything) with a "frequency" of e.g. 1year 
+to get yearly averages, then THETA with the same negative frequency (-1year) and a "timePhase" of 0 to get snapshots at the beginning and the end of the this interval.
+
+Advective and diffusive fluxes:
+ADVx_TH is the 'effect of advection'.  It includes flux-limiting
+and diffusion from the numerical scheme.
+
+DFxE_TH
+which could be termed "diffusive", i.e. it contains all
+non-advective components in the dT/dt sum, such as diffusion due to
+Laplacian or biharmonic diffusion (diffKh, diffK4) and due to GM/Redi.
+
+(ADVx_TH, DFxE_TH) are mass-weighted as well
+(yes, it's the mass of water in the grid cell),
+so you don't have to worry about cell area, thickness or surface  
+corrections when computing sums or budgets.
+
+NB:
+For closing budgets, or for diagnosing the full effect of the  
+advection operator (which is, when flux-limiting, partly 'diffusive'  
+in nature) use ADVx_TH.  You will not, for example, be able to easily  
+account for all the terms leading to dT/dt at a given gridcell unless  
+you use ADVx_TH.

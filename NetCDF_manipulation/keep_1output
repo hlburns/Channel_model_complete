@@ -1,0 +1,6 @@
+#!/bin/bash
+for file in *.mnc/STDOUT.0001
+do
+  mv -i "${file}" "${file/STDOUT.0001/output}"
+  done
+  rm -f *.mnc/STD*         

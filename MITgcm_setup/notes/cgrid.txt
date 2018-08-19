@@ -1,0 +1,63 @@
+
+                                    C-grid
+                                    ======
+
+
+    v  q  v  q  v  q  v  q  v  q  v  q  v  q  v  q  v  q  v  q  v  q  v  q
+
+    h  u  h  u  h  u  h  u  h  u  h  u  h  u  h  u  h  u  h  u  h  u  h  u
+
+    v  q--v--q--v--q--v--q--v--q--v--q--v--q--v--q--v--q--v--q--v--q  v  q
+       |     .     .     .     .     .     .     .     .     .     |
+    h  u  h  u  h  u  h  u  h  u  h  u  h  u  h  u  h  u  h  u  h  u  h  u
+       |     .     .     .     .     .     .     .     .     .     |
+    v  q..v..q..v..q..v..q..v..q..v..q..v..q..v..q..v..q..v..q..v..q  v  q
+       |     .     .     .     .     .     .     .     .     .     |
+    h  u  h  u  h  u  h  u  h  u  h  u  h  u  h  u  h  u  h  u  h  u  h  u
+       |     .     .     .     .     .     .     .     .     .     |
+    v  q..v..q..v..q..v..q..v..q..v..q..v..q..v..q..v..q..v..q..v..q  v  q
+       |     .     .     .     .     .     .     .     .     .     |
+    h  u  h  u  h  u  h  u  h  u  h  u  h  u  h  u  h  u  h  u  h  u  h  u
+       |     .     .     .     .     .     .     .     .     .     |
+    v  q..v..q..v..q..v..q..v..q..v..q..v..q..v..q..v..q..v..q..v..q  v  q
+       |     .     .     .     .     .     .     .     .     .     |
+    h  u  h  u  h  u  h  u  h  u  h  u  h  u  h  u  h  u  h  u  h  u  h  u
+       |     .     .     .     .     .     .     .     .     .     |
+    v  q..v..q..v..q..v..q..v..q..v..q..v..q..v..q..v..q..v..q..v..q  v  q
+       |     .     .     .     .     .     .     .     .     .     |
+    h  u  h  u  h  u  h  u  h  u  h  u  h  u  h  u  h  u  h  u  h  u  h  u
+       |     .     .     .     .     .     .     .     .     .     |
+    v  q..v..q..v..q..v..q..v..q..v..q..v..q..v..q..v..q..v..q..v..q  v  q
+       |     .     .     .     .     .     .     .     .     .     |
+    h  u  h  u  h  u  h  u  h  u  h  u  h  u  h  u  h  u  h  u  h  u  h  u
+       |     .     .     .     .     .     .     .     .     .     |
+    v  q..v..q..v..q..v..q..v..q..v..q..v..q..v..q..v..q..v..q..v..q  v  q
+       |     .     .     .     .     .     .     .     .     .     |
+    h  u  h  u  h  u  h  u  h  u  h  u  h  u  h  u  h  u  h  u  h  u  h  u
+       |     .     .     .     .     .     .     .     .     .     |
+    v  q..v..q..v..q..v..q..v..q..v..q..v..q..v..q..v..q..v..q..v..q  v  q
+       |     .     .     .     .     .     .     .     .     .     |
+    h  u  h  u  h  u  h  u  h  u  h  u  h  u  h  u  h  u  h  u  h  u  h  u
+       |     .     .     .     .     .     .     .     .     .     |
+    v  q..v..q..v..q..v..q..v..q..v..q..v..q..v..q..v..q..v..q..v..q  v  q
+       |     .     .     .     .     .     .     .     .     .     |
+    h  u  h  u  h  u  h  u  h  u  h  u  h  u  h  u  h  u  h  u  h  u  h  u
+       |     .     .     .     .     .     .     .     .     .     |
+    v  q..v..q..v..q..v..q..v..q..v..q..v..q..v..q..v..q..v..q..v..q  v  q
+       |     .     .     .     .     .     .     .     .     .     |
+    h  u  h  u  h  u  h  u  h  u  h  u  h  u  h  u  h  u  h  u  h  u  h  u
+       |     .     .     .     .     .     .     .     .     .     |
+    v  q..v..q..v..q..v..q..v..q..v..q..v..q..v..q..v..q..v..q..v..q  v  q
+       |     .     .     .     .     .     .     .     .     .     |
+    h  u  h  u  h  u  h  u  h  u  h  u  h  u  h  u  h  u  h  u  h  u  h  u
+       |     .     .     .     .     .     .     .     .     .     |
+    v  q--v--q--v--q--v--q--v--q--v--q--v--q--v--q--v--q--v--q--v--q  v  q
+
+    h  u  h  u  h  u  h  u  h  u  h  u  h  u  h  u  h  u  h  u  h  u  h  u
+
+
+
+                          h = h,T,S,p,Wtracer points
+
+                u = u points,  v = v points,  q = q,Psi points
+

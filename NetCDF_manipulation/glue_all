@@ -1,0 +1,11 @@
+gluemncbig -qo 340-360VSQ.nc 340-360.mnc/mnc_out_0*/VSQ.*.nc &
+gluemncbig -qo 340-360VT.nc 340-360.mnc/mnc_out_0*/VTH*.nc &
+gluemncbig -qo 340-360Psi.nc 340-360.mnc/mnc_out_0*/Psi*.nc &
+gluemncbig -qo 340-3602Dmx.nc 340-360.mnc/mnc_out_0*/Mld*.nc &
+gluemncbig -qo 340-360Surf.nc 340-360.mnc/mnc_out_0*/S*.nc &
+wait
+ncra -O 340-360VSQ.nc 340-360VSQ.nc &
+ncra -O 340-360VT.nc 340-360VT.nc &
+ncra -O 340-360Psi.nc 340-360Psi.nc &
+ncra -O 340-3602Dmx.nc 340-3602Dmx.nc &
+ncra -O 340-360Surf.nc 340-360Surf.nc &
