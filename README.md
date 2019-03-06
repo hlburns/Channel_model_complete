@@ -1,6 +1,7 @@
 </center> <center> <h1>PhD Repository</h1> </center>
 
 Overview of PhD code
+[![DOI](https://zenodo.org/badge/142324073.svg)](https://zenodo.org/badge/latestdoi/142324073)
 
 ## PhD Title:  Diabatic Eddies in idealised channel models ##
 
